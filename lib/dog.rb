@@ -63,7 +63,7 @@ class Dog
       dog_hash = {:id => row[0], :name => row[1], :breed => row[2]}
       dog = Dog.new(dog_hash)
     else
-      dog = self.create(name: hash[:name], breed: hash[:breed], id: DB[:conn].execute("SELECT id FROM dogs GROUP BY id HAVING MAX(id);"))
+      dog = self.create(hash)
     end
 
     dog
