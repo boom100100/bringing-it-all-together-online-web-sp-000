@@ -50,7 +50,10 @@ class Dog
 
   end
 
-  def self.find_by_id
+  def self.find_by_id(id)
+    row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id)[0]
+    puts row
+
   end
   def self.find_or_create_by
   end
