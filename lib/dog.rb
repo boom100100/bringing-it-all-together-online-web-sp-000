@@ -65,6 +65,7 @@ class Dog
       dog = Dog.new(dog_hash)
     else
       dog = self.create(hash)
+      dog.save
     end
 
     dog
