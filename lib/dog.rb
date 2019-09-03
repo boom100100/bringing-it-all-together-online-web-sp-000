@@ -51,13 +51,13 @@ class Dog
   end
 
   def self.find_by_id(id)
-    row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id)[0]
+    row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?;", id)[0]
     hash = {:id => row[0], :name => row[1], :breed => row[2]}
     Dog.new(hash)
 
   end
   def self.find_or_create_by(hash)
-    result = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?, breed = ?", hash[:name], hash[:breed])
+    result = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?, breed = ?;", hash[:name], hash[:breed])
     #hash[:id] = result[0][0]
   if result.nil?
       return Dog.new(hash)
