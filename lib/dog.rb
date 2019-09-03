@@ -62,6 +62,7 @@ class Dog
   if result.nil?
       return Dog.new(hash)
     #else
+  end
 
 
   end
