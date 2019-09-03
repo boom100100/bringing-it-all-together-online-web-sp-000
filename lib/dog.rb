@@ -66,6 +66,7 @@ class Dog
     else
       dog = self.create(hash)
       dog.save
+      dog.id = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?;", hash[:name], hash[:breed])[0][0]
     end
 
     dog
