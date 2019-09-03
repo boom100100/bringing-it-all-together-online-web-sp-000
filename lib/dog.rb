@@ -78,14 +78,15 @@ class Dog
     SELECT * FROM dogs WHERE name = ?;
     SQL
 
-    rows = DB[:conn].execute(sql, name)
-    if rows.empty?
+    row = DB[:conn].execute(sql, name)[0]
+    if row.empty?
       puts "No result."
     else
-      dog =
+      hash = {:id => row[0], :name => row[1], :breed => row[2]}
+      dog = Dog.new(hash)
     end
   end
-  
+
   def update
   end
 
