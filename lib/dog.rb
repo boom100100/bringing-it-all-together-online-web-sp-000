@@ -2,9 +2,9 @@ class Dog
   attr_accessor :name, :breed, :id
 
   def initialize(hash)
-    @name = hash[0]
-    @breed = hash[1]
-    @id = hash[2]
+    @name = hash[:name]
+    @breed = hash[:breed]
+    @id = hash[:id]
   end
 
   def self.create_table
