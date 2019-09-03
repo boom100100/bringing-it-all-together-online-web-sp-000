@@ -52,7 +52,8 @@ class Dog
 
   def self.find_by_id(id)
     row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id)[0]
-    puts row
+    hash = {:id => row[0], :name => row[1], :breed => row[2]}
+    Dog.new(hash)
 
   end
   def self.find_or_create_by
