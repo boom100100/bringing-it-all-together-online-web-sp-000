@@ -57,6 +57,7 @@ class Dog
 
   end
   def self.find_or_create_by(hash)
+    puts hash
     row = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?;", hash[:name], hash[:breed])[0]
     dog = nil
     if !row.nil?
